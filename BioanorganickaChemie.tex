@@ -6,20 +6,21 @@
 \usepackage{adjustbox}
 \usepackage{mhchem}
 \usepackage{chemfig}
-\usepackage{ucs}
-\usepackage[utf8]{inputenc}
 \usepackage{caption}
 
-\PrerenderUnicode{ěščřžýáíéĚŠČŘŽÝÁÍÉďťňĎŤŇůúÚóÓ}
+%dělení slov
+\usepackage{ragged2e}
+\let\raggedright=\RaggedRight
+%konec dělení slov
 
 \addtobeamertemplate{frametitle}{
-   \let\insertframetitle\insertsectionhead}{}
+	\let\insertframetitle\insertsectionhead}{}
 \addtobeamertemplate{frametitle}{
-   \let\insertframesubtitle\insertsubsectionhead}{}
+	\let\insertframesubtitle\insertsubsectionhead}{}
 
 \makeatletter
-  \CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
-  \renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
 \makeatother
 \setbeamercolor{section in toc}{fg=red}
 \setbeamertemplate{section in toc shaded}[default][100]
@@ -33,11 +34,10 @@
 \def\uv#1{„#1“}
 
 \mode<presentation>{\usetheme{default}}
- \usecolortheme{Whale}
+\usecolortheme{crane}
 
 \setbeamertemplate{footline}[frame number]
 
-\begin{document}
 \title[Crisis]
 {C2062 -- Anorganická chemie II}
 
@@ -45,6 +45,7 @@
 \author{Zdeněk Moravec, hugo@chemi.muni.cz \\ \adjincludegraphics[height=50mm]{img/Chlorophyll_b_structure.png}}
 \date{}
 
+\begin{document}
 \begin{frame}
 	\titlepage
 \end{frame}
@@ -58,8 +59,8 @@
 		\item Studuje funkci anorganických látek v biologických systémech.
 	\end{itemize}
 	\begin{figure}
-		\adjincludegraphics[height=0.6\textheight]{img/HemerythrinTri.jpg}
-		\caption*{Hemerythrin, protein obsahující železo}
+		\adjincludegraphics[height=0.55\textheight]{img/HemerythrinTri.jpg}
+		\caption*{Hemerythrin, protein obsahující železo.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:HemerythrinTri.jpg}{BerserkerBen/Commons}}}
 	\end{figure}
 	\vfill
 }
@@ -79,7 +80,7 @@
 		\end{itemize}
 	\end{itemize}
 \begin{figure}
-	\adjincludegraphics[height=0.4\textheight]{img/Cisplatin-stereo.png}
+	\adjincludegraphics[height=0.4\textheight]{img/cis-platin.png}
 \end{figure}
 	\vfill
 }
@@ -89,22 +90,23 @@
 	\vfill
 	\begin{itemize}
 		\item Kovy v lidském těle (o váze 70 kg)
-		\begin{tabular}{|c|c|l|}
-			\hline
-			\textbf{Kov} & \textbf{Obsah [mg]} & \textbf{Funkce} \\\hline
-			V & 0,1 & Enzymy \\\hline
-			Co & 3 & Vitamín B12 \\\hline
-			Mo & 5 & Enzymy \\\hline
-			Mn & 12 & Enzymy; fotoredoxní aktivita ve fotosystému II \\\hline
-			Cr & 14 & Metabolismus glukózy \\\hline
-			Ni & 15 & Enzymy \\\hline
-			Cu & 72 & Přenos a ukládání \ce{O2}; přenos elektronů \\\hline
-			Zn & 2300 & Lewisova kyselina \\\hline
-			Fe & 4200 & FeS proteiny, přenos a ukládání \ce{O2} a \ce{CO2} \\\hline
-			Na & 90 000 & Extracelulární tekutiny \\\hline
-			K & 120 000 & Intracelulární tekutiny \\\hline
-		\end{tabular}
 	\end{itemize}
+
+	\begin{tabular}{|c|c|l|}
+		\hline
+		\textbf{Kov} & \textbf{Obsah [mg]} & \textbf{Funkce} \\\hline
+		V & 0,1 & Enzymy \\\hline
+		Co & 3 & Vitamín B12 \\\hline
+		Mo & 5 & Enzymy \\\hline
+		Mn & 12 & Enzymy; fotoredoxní aktivita ve fotosystému II \\\hline
+		Cr & 14 & Metabolismus glukózy \\\hline
+		Ni & 15 & Enzymy \\\hline
+		Cu & 72 & Přenos a ukládání \ce{O2}; přenos elektronů \\\hline
+		Zn & 2300 & Lewisova kyselina \\\hline
+		Fe & 4200 & FeS proteiny, přenos a ukládání \ce{O2} a \ce{CO2} \\\hline
+		Na & 90 000 & Extracelulární tekutiny \\\hline
+		K & 120 000 & Intracelulární tekutiny \\\hline
+	\end{tabular}
 	\vfill
 }
 
@@ -129,7 +131,8 @@
 		\item Jejich transport skrz buněčnou membránu zajišťuje \textit{sodno-draselná pumpa}.
 	\end{itemize}
 	\begin{figure}
-		\adjincludegraphics[height=.55\textheight]{img/Scheme_sodium-potassium_pump.png}
+		\adjincludegraphics[height=.45\textheight]{img/Scheme_sodium-potassium_pump.png}
+		\caption*{Sodno-draselná pumpa.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Scheme_sodium-potassium_pump-cs.svg}{LadyofHats/Commons}}}
 	\end{figure}
 	\vfill
 }
@@ -143,7 +146,8 @@
 		\item Procesu, kdy z oxidu uhličitého a vody vzniká v přítomnosti světla cukr.
 	\end{itemize}
 	\begin{figure}
-		\adjincludegraphics[height=.6\textheight]{img/Chlorophyll_d_structure.png}
+		\adjincludegraphics[height=.55\textheight]{img/Chlorophyll_d_structure.png}
+		\caption*{Chlorofyl.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Chlorophyll_d_structure.svg}{Yikrazuul/Commons}}}
 	\end{figure}
 	\vfill
 }
@@ -152,7 +156,8 @@
 	\frametitle{}
 	\vfill
 	\begin{figure}
-		\adjincludegraphics[height=.8\textheight]{img/Photosynthesis_en.png}
+		\adjincludegraphics[height=.7\textheight]{img/Photosynthesis_en.png}
+		\caption*{Fotosyntéza.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Photosynthesis_en.svg}{At09kg/Commons}}}
 	\end{figure}
 	\vfill
 }
@@ -164,19 +169,17 @@
 	\begin{columns}
 		\begin{column}{.75\textwidth}
 			\begin{itemize}
-				\item Vanad má důležitější roli v mořském prostředí než v suchozemském.
+				\item Vanad má důležitější roli v mořském prostředí než v suchozemském.\footnote[frame]{\href{https://doi.org/10.1016/j.ica.2023.121387}{Vanadium in biological systems and medicinal applications}}
 				\item Mořské řasy produkují vanadovou bromoperoxidasu, chloroperoxidasu a jodoperoxidasu, které jsou odpovědné za odstraňování peroxidu z organismu:
 				\item \ce{R-H + Br^- + H2O2 -> R-Br + H2O + OH-}
-				\item Muchomůrky červené mají schopnost silně akumulovat vanad z okolí.
+				\item Muchomůrky červené mají schopnost silně akumulovat vanad z okolí.\footnote[frame]{\href{https://vesmir.cz/cz/casopis/archiv-casopisu/2022/cislo-2/muchomurka-cervena-vanad.html}{Muchomůrka červená a vanad}}
 				\item Vanad se v nich vyskytuje jako \textit{amavadinový anion}, obsahuje vanad v oxidačním stavu IV, který je chelatován dvěma anionty kyseliny N-hydroxyimino-2,2'-dipropionové.
 			\end{itemize}
 		\end{column}
-		\begin{column}{.4\textwidth}
-			\begin{figure}
-				\adjincludegraphics[height=.35\textheight]{img/VBrPOactsite.png}
-			\end{figure}
+		\begin{column}{.35\textwidth}
 			\begin{figure}
 				\adjincludegraphics[height=.35\textheight]{img/Amanita_muscaria._Eastern_Siberia.jpg}
+				\caption*{Muchomůrka červená (\textit{Amanita muscaria}).\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Amanita_muscaria._Eastern_Siberia.jpg}{Oleg Bor/Commons}}}
 			\end{figure}
 		\end{column}
 	\end{columns}
@@ -190,15 +193,32 @@
 	\begin{columns}
 		\begin{column}{.5\textwidth}
 			\begin{figure}
-				\adjincludegraphics[width=\textwidth]{img/Amavadin.png}
+				\adjincludegraphics[width=.9\textwidth]{img/Amavadin.png}
+				\caption*{Amavadin.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Amavadin.svg}{Edgar181/Commons}}}
 			\end{figure}
 		\end{column}
 		\begin{column}{.5\textwidth}
 			\begin{figure}
-				\adjincludegraphics[width=\textwidth]{img/Amavadin-from-xtal.png}
+				\adjincludegraphics[width=.9\textwidth]{img/Amavadin-from-xtal.png}
+				\caption*{Krystalová struktura amavadinu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Amavadin-from-xtal-1999-3D-balls.png}{Ben Mills/Commons}}}
 			\end{figure}
 		\end{column}
 	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Hemovanadin je světle zelená bílkovina.
+		\item Nachází se v krevních buňkách mořských perutýnů a dalších organismů.
+		\item Na rozdíl od hemoglobinu není nosičem kyslíku.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.4\textheight]{img/Sea_Squirt.jpg}
+		\caption*{Pospolitka zelenavá.\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:Sea_Squirt_(Didemnum_molle)_(8482750832).jpg}{Zdroj: Bernard DUPONT/Commons}}}
+	\end{figure}
 	\vfill
 }
 
@@ -209,7 +229,7 @@
 	\frametitle{}
 	\vfill
 	\begin{itemize}
-		\item Jeho koncentrace v živých organismech je nízká, ale i tak je nezbytný.
+		\item Koncentrace \textbf{molybdenu} v živých organismech je nízká, ale i tak je nezbytný.
 		\item Nedostatek molybdenu u lidí není příliš častý, může způsobit mentální poruchy.\footnote[frame]{\href{https://lpi.oregonstate.edu/mic/minerals/molybdenum}{Molybdenum}}
 		\item Nedostatek molybdenu u květáku a brokolice způsobuje tzv. \textit{vyslepnutí}, čímž je myšleno netvoření růžic, příp. tvorba silně redukovaných růžic.\footnote[frame]{\href{http://eagri.cz/public/app/srs_pub/fytoportal/public/?key="c18ccd9cbe2ba381e37b810d0c71a00f"\#rlp|poruchy|detail:c18ccd9cbe2ba381e37b810d0c71a00f|popis}{Mo-deficientní vyslepnutí květáku a brokolice}}
 		\item U kukuřice způsobuje nedostatek molybdenu předčasné klíčení semen.\footnote[frame]{\href{https://dx.doi.org/10.1007/978-94-011-3438-5_41}{Soil acidity effects on premature germination in immature maize grain}}
@@ -224,23 +244,24 @@
 	\vfill
 
 	\begin{figure}
-		\adjincludegraphics[height=.8\textheight]{img/Premature_germination_maize_2014_05_15_10_35_37_7919.jpg}
+		\adjincludegraphics[height=.75\textheight]{img/Premature_germination_maize_2014_05_15_10_35_37_7919.jpg}
+		\caption*{Předčasně naklíčená kukuřice.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Premature_germination_maize_2014_05_15_10_35_37_7919.jpg}{Alandmanson/Commons}}}
 	\end{figure}
 	\vfill
 }
-
 
 \section{Wolfram}
 \frame{
 	\frametitle{}
 	\vfill
 	\begin{itemize}
-		\item Wolfram je nejtěžším kovem, který se vyskytuje v biologických systémech.
+		\item \textbf{Wolfram} je nejtěžším kovem, který se vyskytuje v biologických systémech.
 		\item Vyskytuje se u některých prokaryotních bakterií, kde je součástí enzymů oxidoreduktas, např. \textit{aldehyd ferredoxin oxidoreduktázy}.\footnote[frame]{\href{https://doi.org/10.1016/S0076-6879(01)31052-2}{Aldehyde Oxidoreductases from \textit{Pyrococcus furiosus}}}
 	\end{itemize}
 
 	\begin{figure}
 		\adjincludegraphics[height=.5\textheight]{img/AOR_Mechanism.jpg}
+		\caption*{Mechanismus funkce aldehyd ferredoxin oxidoreduktázy.\footnote[frame]{Zdroj: \href{https://en.wikipedia.org/wiki/Aldehyde_ferredoxin_oxidoreductase}{jejeni6/Commons}}}
 	\end{figure}
 	\vfill
 }
@@ -264,7 +285,7 @@
 	\vfill
 	\begin{figure}
 		\adjincludegraphics[width=\textwidth]{img/SOD2_Proton.jpg}
-		\caption*{Mechanismus přenosu elektronu pomocí SOD2 proteinu}
+		\caption*{Mechanismus přenosu elektronu pomocí SOD2 proteinu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:SOD2_Proton-Coupled_Electron_Transfer_Mechanism.tif}{Jarjarbinks98/Commons}}}
 	\end{figure}
 	\vfill
 }
@@ -272,57 +293,33 @@
 \section{Železo}
 \frame{
 	\frametitle{}
-	\vfill
-	\begin{itemize}
-		\item Železo je asi nejdůležitějším přechodným kovem pro biologii živočichů i rostlin.
-		\item Tělo dospělého člověka obsahuje zhruba 4 g železa, z toho 3 gramy připadají na \textit{hemoglobin}.
-		\item Hemoglobin je bílkovina transportující kyslík, je obsažen v červených krvinkách.\footnote[frame]{\href{https://www.wikiskripta.eu/w/Transport_kyslíku_krví}{Transport kyslíku krví}}
-		\item Obsahuje železnatý ion ve vyskospinovém stavu komplexovaný porfyrinovým ligandem.
-		\item Po navázání kyslíku, nedojde k oxidaci na \ce{Fe^{III}}, ale ke změně stavu na nízkospinový, diamagnetický. Zároveň se na železo váže histidin.
-		\item Kromě kyslíku, transportuje hemoglobin i \ce{CO2}.
-	\end{itemize}
 	\begin{columns}
-		\begin{column}{.5\textwidth}
-			\begin{figure}
-				\adjincludegraphics[height=.25\textheight]{img/Heme1.png}
-			\end{figure}
+		\begin{column}{.7\textwidth}
+			\vfill
+			\begin{itemize}
+				\item Železo je asi nejdůležitějším přechodným kovem pro biologii živočichů i rostlin.
+				\item Tělo dospělého člověka obsahuje zhruba 4 g železa, z toho tři gramy připadají na \textit{hemoglobin}.
+				\item Hemoglobin je bílkovina transportující kyslík, najdeme ho v červených krvinkách.\footnote[frame]{\href{https://www.wikiskripta.eu/w/Transport_kyslíku_krví}{Transport kyslíku krví}}
+				\item Obsahuje železnatý ion ve vyskospinovém stavu komplexovaný porfyrinovým ligandem.
+				\item Po navázání kyslíku, nedojde k oxidaci na \ce{Fe^{III}}, ale ke změně stavu na nízkospinový, diamagnetický. Zároveň se na železo váže histidin.
+				\item Kromě kyslíku, transportuje hemoglobin i \ce{CO2}.
+			\end{itemize}
+			\vfill
 		\end{column}
-		\begin{column}{.5\textwidth}
+		\begin{column}{.35\textwidth}
 			\begin{figure}
-				\adjincludegraphics[height=.25\textheight]{img/Redbloodcells.jpg}
+				\adjincludegraphics[width=\textwidth]{img/Oxygenated_vs_deoxygenated_RBC.jpg}
+				\caption*{Okysličené a neokysličené červené krvinky.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Oxygenated_vs_deoxygenated_RBC.jpg}{Rogeriopfm/Commons}}}
 			\end{figure}
 		\end{column}
 	\end{columns}
-	\vfill
 }
 
 \frame{
 	\frametitle{}
-	\begin{itemize}
-		\item Navázáním CO na hemoglobin vzniká \textit{karboxylhemoglobin}. CO je vázán podstatně pevněji než kyslík, to je důvodem nebezpečnosti oxidu uhelnatého pro člověka.
-	\end{itemize}
 	\begin{figure}
 		\adjincludegraphics[width=1.1\textwidth]{img/Structures_of_Hemoglobin.png}
-	\end{figure}
-}
-
-\frame{
-	\frametitle{}
-	\begin{figure}
-		\adjincludegraphics[width=0.9\textwidth]{img/Hemoglobin-3D-model-ribbons.png}
-		\caption*{3D struktura hemoglobinu}
-	\end{figure}
-}
-
-\frame{
-	\frametitle{}
-	\begin{itemize}
-		\item Struktura hemoglobinu brání nežádoucí oxidaci \ce{Fe^{2+}} na \ce{Fe^{3+}}.
-		\item Okolí hemu vytváří hydrofóbní prostředí, které se vlastnostmi nepolárnímu rozpouštědlu s nízkou permitivitou.
-		\item Tím zabraňuje přístupu kyslíku k železu.
-	\end{itemize}
-	\begin{figure}
-		\adjincludegraphics[height=.5\textheight]{img/Heme1.png}
+		\caption*{Hemoglobin s navázaným kyslíkem, oxidem uhličitým a oxidem uhelnatým.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Structures_of_Hemoglobin_forms.png}{Gladissk/Commons}}}
 	\end{figure}
 }
 
@@ -335,20 +332,9 @@
 		\item Tyto proteiny mají funkci transferu elektronů (oxidoreduktasy nebo transelektronasy).
 		\item Během transferu elektronů dochází ke změně oxidačního stavu železa z II na III, oba stavy jsou ve vysokospinové konfiguraci.
 	\end{itemize}
-	\begin{columns}
-		\begin{column}{.5\textwidth}
-			\begin{figure}
-				\adjincludegraphics[height=.3\textheight]{img/Cystein.png}
-				\caption*{Cystein}
-			\end{figure}
-		\end{column}
-		\begin{column}{.5\textwidth}
-			\begin{figure}
-				\adjincludegraphics[height=.3\textheight]{img/Histidin.png}
-				\caption*{Histidin}
-			\end{figure}
-		\end{column}
-	\end{columns}
+	\begin{figure}
+		\adjincludegraphics[height=.4\textheight]{img/Cystein-histidin.png}
+	\end{figure}
 	\vfill
 }
 
@@ -362,7 +348,7 @@
 		\item Vitamín byl objeven roku 1926 G. R. Minotem a W. P. Murphym.
 		\item Jeho hlavní funkcí je regulace syntézy DNA, ale podílí se také na syntéze mastných kyselin a produkci energie.
 		\item Bakterie v žaludku přežvýkavců dokáží zpracovat soli kobaltu na vitamín B12, proto je jeho přítomnost v půdě (v nízké koncentraci) důležitá pro zdraví pasoucích se zvířat.
-		\item Na konci 19. století bylo zjištěno, že zhoubné onemocnění ovcí a hovězího dobytka je způsobeno právě nedostatkem kobaltu a nikoliv železa, jak se dříve předpokládalo.
+		\item Na konci 19. století bylo zjištěno, že zhoubné onemocnění ovcí a hovězího dobytka je způsobeno právě nedostatkem kobaltu a nikoliv železa, jak se dříve předpokládalo.\footnote[frame]{\href{https://doi.org/10.1152/physrev.1952.32.1.66}{Cobalt, Copper and Molybdenum in the Nutrition of Animals and Plants}}
 		\item U člověka způsobuje nedostatek vitamínu B12 chudokrevnost, únavu, zácpu, pokles váhy. Může způsobovat i neurologické změny (deprese).
 	\end{itemize}
 	\vfill
@@ -371,18 +357,10 @@
 \frame{
 	\frametitle{}
 	\vfill
-	\begin{columns}
-		\begin{column}{.5\textwidth}
-			\begin{figure}
-				\adjincludegraphics[height=.8\textheight]{img/Cobalamin.png}
-			\end{figure}
-		\end{column}
-		\begin{column}{.5\textwidth}
-			\begin{figure}
-				\adjincludegraphics[height=\textwidth,angle=90]{img/Cyanocobalamin.png}
-			\end{figure}
-		\end{column}
-	\end{columns}
+	\begin{figure}
+		\adjincludegraphics[height=.67\textheight]{img/Cobalamin.png}
+		\caption*{Struktura kobalaminu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Cobalamin_skeletal.svg}{Hbf878/Commons}}}
+	\end{figure}
 	\vfill
 }
 
@@ -402,10 +380,29 @@
 		\end{column}
 		\begin{column}{.4\textwidth}
 			\begin{figure}
-				\adjincludegraphics[height=.8\textheight]{img/B12_1000mcg.jpg}
+				\adjincludegraphics[height=.63\textheight]{img/B12_1000mcg.jpg}
+				\caption*{Vialka s vitamínem B12.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:B12_1000mcg_vial_white_background.jpg}{Wesalius/Commons}}}
 			\end{figure}
 		\end{column}
 	\end{columns}
+	\vfill
+}
+
+\section{Nikl}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Oproti železu a kobaltu je biologický význam niklu výrazně nižší.
+		\item {[NiFe]} hydrogenáza je enzym katalyzující reverzibilní přeměnu molekulárního vodíku v některých prokaryotních organismech:\footnote[frame]{\href{https://doi.org/10.1039/C3RA22668A}{Fundamentals and electrochemical applications of [Ni–Fe]-uptake hydrogenases}}
+		\item \ce{H2 <=> 2 H+ + 2 e-}
+		\item Struktura enzymu obsahuje aktivní místo tvořené ionty Fe a Ni vázanými přes sulfidické můstky.
+		\item Železo je stabilně v oxidačním stavu II, redoxních dějů se účastní nikl.
+	\end{itemize}
+	\begin{figure}
+		\adjincludegraphics[height=.3\textheight]{img/Nickel_Iron_Hydrogenase_Active_Site.png}
+		\caption*{Aktivní místa NiFe hydrogenasy.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Nickel_Iron_Hydrogenase_Active_Site.png}{CHEM8240edpt/Commons}}}
+	\end{figure}
 	\vfill
 }
 
@@ -429,40 +426,24 @@
 	\vfill
 	\begin{columns}
 		\begin{column}{.6\textwidth}
-		\begin{itemize}
-		\item Hemocyanin, je metaloprotein obsahující dva ionty mědi.
-		\item Je součástí respiračního cyklu měkkýšů a některých členovců.
-		\item Ionty mědi slouží k navázání molekuly kyslíku.
-		\item Při oxidaci přechází bezbarvá forma (\ce{Cu^I}) na modrou (\ce{Cu^I^I}).
-	\end{itemize}
+			\begin{itemize}
+				\item Hemocyanin, je metaloprotein obsahující dva ionty mědi.
+				\item Je součástí respiračního cyklu měkkýšů a některých členovců.
+				\item Ionty mědi slouží k navázání molekuly kyslíku.
+				\item Při oxidaci přechází bezbarvá forma (\ce{Cu^I}) na modrou (\ce{Cu^I^I}).
+			\end{itemize}
 
-	\begin{figure}
-		\adjincludegraphics[height=.3\textheight]{img/Oxyhemocyanin.png}
-	\end{figure}
-	\end{column}
-	\begin{column}{.4\textwidth}
-		\begin{figure}
-			\adjincludegraphics[width=\textwidth]{img/Hemocyanin2.jpg}
-		\end{figure}
-	\end{column}
+			\begin{figure}
+				\adjincludegraphics[height=.3\textheight]{img/Oxyhemocyanin.png}
+			\end{figure}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Hemocyanin2.jpg}
+				\caption*{Molekulová struktura hemocyaninu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Hemocyanin2.jpg}{Cuff ME, Miller KI, van Holde KE, Hendrickson WA/Commons}}}
+			\end{figure}
+		\end{column}
 	\end{columns}
-	\vfill
-}
-
-\section{Nikl}
-\frame{
-	\frametitle{}
-	\vfill
-	\begin{itemize}
-		\item Oproti železu a kobaltu je biologický význam niklu výrazně nižší.
-		\item {[NiFe]} hydrogenáza je enzym katalyzující reverzibilní přeměnu molekulárního vodíku v některých prokaryotních organismech:\footnote[frame]{\href{https://doi.org/10.1039/C3RA22668A}{Fundamentals and electrochemical applications of [Ni–Fe]-uptake hydrogenases}}
-		\item \ce{H2 <=> 2 H+ + 2 e-}
-		\item Struktura enzymu obsahuje aktivní místo tvořené ionty Fe a Ni vázanými přes sulfidické můstky.
-		\item Železo je stabilně v oxidačním stavu II, redoxních dějů se účastní nikl.
-	\end{itemize}
-	\begin{figure}
-		\adjincludegraphics[height=.4\textheight]{img/Nickel_Iron_Hydrogenase_Active_Site.png}
-	\end{figure}
 	\vfill
 }
 
@@ -655,6 +636,7 @@
 		\begin{column}{.5\textwidth}
 			\begin{figure}
 				\adjincludegraphics[width=\textwidth]{img/Aspergillus_on_tomato.jpg}
+				\caption{Plíseň Aspergillus na rajčeti.\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:Aspergillus_on_tomato.jpg}{Zdroj: Multimotyl/Commons}}}
 			\end{figure}
 		\end{column}
 	\end{columns}
